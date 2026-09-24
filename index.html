@@ -12,7 +12,7 @@ section.screen{display:none}section.screen.active{display:block}
 .hero{background:linear-gradient(105deg,#193b69 0%,#2f62ad 52%,#4f82df 100%);color:#fff;border-radius:13px;padding:21px 23px 18px;box-shadow:0 5px 16px rgba(24,55,100,.12);margin-bottom:15px}
 .hero h1{font-size:21px;margin:0 0 5px;font-weight:800}.hero p{font-size:11px;margin:0;opacity:.95}
 .card{background:#fff;border:1px solid var(--line);border-radius:12px;padding:15px;box-shadow:0 2px 8px rgba(31,55,84,.025);margin-bottom:14px}
-.grid4{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+.grid4{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}.overview-kpis .kpi{display:grid;grid-template-columns:1fr auto;grid-template-rows:auto auto;align-items:center;min-height:76px}.overview-kpis .kpi .l:first-child{grid-column:1;grid-row:1;font-size:10px;font-weight:700;color:#52657d;margin-top:0}.overview-kpis .kpi .v{grid-column:2;grid-row:1;font-size:26px}.overview-kpis .kpi .l:last-child{grid-column:1 / -1;grid-row:2;margin-top:7px}.overview-programs{display:block}
 .kpi{border:1px solid #dce5ef;border-radius:11px;padding:15px 13px 12px;background:#fff}.kpi .v{font-size:22px;font-weight:800;line-height:1.05;color:#12345f}.kpi .l{font-size:9px;color:#718096;margin-top:5px}
 .filters{display:flex;flex-direction:row;align-items:flex-end;gap:10px;margin-bottom:14px}.filters .field:nth-child(1){width:220px}.filters .field:nth-child(2){width:160px}.filters .field:nth-child(3){width:240px}
 .field label{display:block;font-size:10px;font-weight:700;color:#52657d;margin:0 0 4px}select,input{width:100%;height:30px;border:1px solid #cbd7e5;border-radius:6px;background:#fff;padding:0 9px;color:#1d3556;font-size:11px}
@@ -28,7 +28,7 @@ section.screen{display:none}section.screen.active{display:block}
 .tablewrap{overflow:auto}table{width:100%;border-collapse:collapse;font-size:12px}th,td{padding:10px;border-bottom:1px solid var(--line);text-align:left}th{font-size:10px;text-transform:uppercase;color:var(--muted)}.num{text-align:center!important}
 .pill{display:inline-block;padding:4px 8px;border-radius:999px;background:#eaf1fc;color:#315f9e;font-size:11px;font-weight:700}
 .dist{display:grid;grid-template-columns:repeat(5,1fr);gap:8px;margin-top:12px}.distbox{text-align:center;padding:11px 5px;background:#f8f9fc;border-radius:8px}.distbox b{font-size:17px;display:block}.distbox span{font-size:10px;color:var(--muted)}
-.empty{padding:25px;text-align:center;color:#738196;font-size:12px}
+.empty{padding:25px;text-align:center;color:#738196;font-size:12px}.section-group-title{margin:18px 0 10px;padding:11px 14px;border-left:4px solid #4f82df;background:#f4f7fc;border-radius:8px;color:#244a7c;font-size:13px;font-weight:800;line-height:1.45}.section-group-title:first-child{margin-top:0}
 @media(max-width:900px){aside{width:190px}main{margin-left:190px;width:calc(100% - 190px)}.grid4{grid-template-columns:repeat(2,1fr)}.filters{flex-direction:column;align-items:stretch}.filters .field{width:100%!important}}
 
 
@@ -37,7 +37,7 @@ section.screen{display:none}section.screen.active{display:block}
 .matrix-summary{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:16px}.summary-mini{border:1px solid var(--line);border-radius:12px;padding:14px;background:#fbfdff}.summary-mini .eyebrow{font-size:11px;color:var(--muted);font-weight:700;text-transform:uppercase}.summary-mini .big{font-size:25px;font-weight:800;color:var(--navy);margin-top:4px}.summary-mini .small{font-size:11px;color:var(--muted);margin-top:2px}
 .response-chart{height:170px;display:flex;align-items:flex-end;justify-content:center;gap:28px;padding:16px 10px 0}.response-chart .baritem{width:55px}.response-chart .bar{max-height:125px}.response-chart .barlabel{font-size:10px}
 .response-legend{display:flex;gap:12px;flex-wrap:wrap;margin:12px 0 16px}.response-legend span{font-size:11px;color:var(--muted)}
-.matrix-response{margin-top:18px}.matrix-response summary{cursor:pointer;list-style:none}.matrix-response summary::-webkit-details-marker{display:none}.matrix-response summary .matrix-title{display:flex;align-items:center;justify-content:space-between;gap:10px}.matrix-response summary .chev{font-size:16px;color:var(--muted)}
+.matrix-response{margin-top:18px}.matrix-header-text{font-size:11px;color:#5f6f82;font-weight:600;margin-top:5px;line-height:1.45}.matrix-header-text .eyebrow{font-size:9px;text-transform:uppercase;letter-spacing:.04em;color:#8a98a8;font-weight:800;margin-right:5px}.matrix-response summary{cursor:pointer;list-style:none}.matrix-response summary::-webkit-details-marker{display:none}.matrix-response summary .matrix-title{display:flex;align-items:center;justify-content:space-between;gap:10px}.matrix-response summary .chev{font-size:16px;color:var(--muted)}
 .response-stack{display:flex;width:100%;height:28px;border-radius:8px;overflow:hidden;background:#edf2f7;margin:16px 0 8px}.response-stack .seg{font-size:10px;display:flex;align-items:center;justify-content:center;color:#fff;font-weight:700;white-space:nowrap;overflow:hidden}
 .response-table{width:100%;border-collapse:collapse;margin-top:10px}.response-table th{font-size:10px;color:var(--muted);text-transform:uppercase;text-align:left;padding:8px;border-bottom:1px solid var(--line)}.response-table td{padding:9px 8px;border-bottom:1px solid #edf1f5;font-size:12px;vertical-align:top}.response-table .value{font-weight:800;text-align:center;width:90px}.response-badge{display:inline-flex;align-items:center;justify-content:center;min-width:28px;height:28px;border-radius:8px;color:#fff;font-weight:800}.response-text{font-size:11px;color:var(--muted);display:block;margin-top:2px}
 .response-pages{display:flex;justify-content:space-between;align-items:center;gap:10px;margin-top:12px}.response-pages button{border:1px solid var(--line);background:#fff;border-radius:8px;padding:7px 11px;cursor:pointer}.response-pages button:disabled{opacity:.45;cursor:not-allowed}
@@ -49,22 +49,20 @@ section.screen{display:none}section.screen.active{display:block}
 <button class="active" onclick="show('overview',this)">Visão geral</button>
 <button onclick="show('matrices',this)">Matrizes de competências</button>
 <button onclick="show('responses',this)">Análise das respostas</button>
-<button onclick="show('participation',this)">Participação</button>
 </nav></aside><main>
 
 <section id="overview" class="screen active">
 <div class="hero"><h1>Visão geral da pesquisa</h1><p>Percepção sobre competências — distribuição das respostas e panorama dos programas.</p></div>
-<div class="grid4">
-<div class="kpi card"><div class="l">Registros</div><div class="v">177</div><div class="l">respondentes no DATA</div></div>
-<div class="kpi card"><div class="l">Respostas</div><div class="v">6,772</div><div class="l">avaliações válidas</div></div>
-<div class="kpi card"><div class="l">Média geral</div><div class="v">3.85</div><div class="l">escala de 1 a 5</div></div>
-<div class="kpi card"><div class="l">Competências</div><div class="v">1149</div><div class="l">com pelo menos uma resposta</div></div>
+<div class="card"><div class="filters overview-filters"><div class="field"><label>Programa</label><select id="ofProgram"></select></div><div class="field"><label>Ano</label><select id="ofYear"></select></div></div></div>
+<div class="grid4 overview-kpis">
+<div class="kpi card"><div class="l">Registros</div><div class="v" id="overviewRecords">177</div><div class="l">respondentes</div></div>
+<div class="kpi card"><div class="l">Respostas</div><div class="v" id="overviewResponses">6,772</div><div class="l">competências avaliadas</div></div>
+<div class="kpi card"><div class="l">Média geral</div><div class="v" id="overviewMean">3.85</div><div class="l">escala de 1 a 5</div></div>
+<div class="kpi card"><div class="l">Competências</div><div class="v" id="overviewCompetencies">1149</div><div class="l">com pelo menos uma resposta</div></div>
 </div>
 <div class="card"><div class="section-title">Distribuição das respostas</div><div id="overviewBars" class="bars"><div class="baritem"><div class="barvalue">279</div><div class="bar c1" style="height:8.37%"></div><div class="barlabel">Nenhum domínio</div></div><div class="baritem"><div class="barvalue">492</div><div class="bar c2" style="height:14.75%"></div><div class="barlabel">Pouco domínio</div></div><div class="baritem"><div class="barvalue">1.289</div><div class="bar c3" style="height:38.66%"></div><div class="barlabel">Domínio parcial</div></div><div class="baritem"><div class="barvalue">2.601</div><div class="bar c4" style="height:78.00%"></div><div class="barlabel">Bom domínio</div></div><div class="baritem"><div class="barvalue">2.111</div><div class="bar c5" style="height:63.31%"></div><div class="barlabel">Domínio pleno</div></div></div></div>
-<div class="grid3">
+<div class="overview-programs">
 <div class="card"><div class="section-title">Programas</div><div class="tablewrap"><table><thead><tr><th>Programa</th><th class="num">Respostas</th></tr></thead><tbody id="programTable"></tbody></table></div></div>
-<div class="card"><div class="section-title">Leitura inicial</div><p class="note">As cinco categorias permanecem separadas. O <b>n</b> de cada competência é o número de respostas válidas naquela competência.</p><p class="note">A navegação permite sair da visão geral e chegar até a distribuição de cada competência.</p></div>
-
 </div>
 </section>
 
@@ -84,16 +82,6 @@ section.screen{display:none}section.screen.active{display:block}
 <div id="respondentArea"></div>
 </section>
 
-<section id="participation" class="screen">
-<div class="hero"><h1>Participação</h1><p>Panorama de preenchimento dos registros da pesquisa.</p></div>
-<div class="grid4">
-<div class="kpi card"><div class="l">Registros</div><div class="v">177</div><div class="l">linhas no DATA</div></div>
-<div class="kpi card"><div class="l">Com respostas</div><div class="v" id="withAnswers"></div><div class="l">ao menos uma competência</div></div>
-<div class="kpi card"><div class="l">Competências respondidas</div><div class="v">1149</div><div class="l">com n maior que zero</div></div>
-<div class="kpi card"><div class="l">Variáveis</div><div class="v">1,755</div><div class="l">estrutura original</div></div>
-</div>
-<div class="card"><div class="section-title">Distribuição dos registros por presença de resposta</div><div id="partBars" class="bars"></div></div>
-</section>
 
 </main></div>
 <script>
@@ -114,6 +102,28 @@ const RESPONDENTS=RESPONDENTS_RAW.map(x=>{
 const fmt=n=>new Intl.NumberFormat('pt-BR').format(n);
 const mean=n=>Number(n).toLocaleString('pt-BR',{minimumFractionDigits:2,maximumFractionDigits:2});
 const pct=(n,t)=>t?n/t*100:0;
+
+const ofProgram=document.getElementById('ofProgram'),ofYear=document.getElementById('ofYear');
+ofProgram.innerHTML='<option value="">Todos os programas</option>'+[...new Set(RESPONDENTS.map(r=>r.program))].sort((a,b)=>a.localeCompare(b,'pt-BR')).map(p=>`<option value="${esc(p)}">${esc(p)}</option>`).join('');
+ofYear.innerHTML='<option value="">Todos os anos</option><option value="R1">R1</option><option value="R2">R2</option><option value="R3">R3</option>';
+function renderOverview(){
+ const program=ofProgram.value, year=ofYear.value;
+ const selected=RESPONDENTS.filter(r=>(!program||r.program===program)&&(!year||r.matrices.some(m=>m.year===year)));
+ const values=[];
+ selected.forEach(r=>r.matrices.forEach(m=>{if(!year||m.year===year){m.responses.forEach(c=>values.push(c.value));}}));
+ const counts=[1,2,3,4,5].map(n=>values.filter(v=>v===n).length);
+ const total=values.length, avg=total?values.reduce((a,b)=>a+b,0)/total:0;
+ const competencies=new Set();
+ selected.forEach(r=>r.matrices.forEach(m=>{if(!year||m.year===year)m.responses.forEach(c=>competencies.add(c.var));}));
+ document.getElementById('overviewRecords').textContent=fmt(selected.length);
+ document.getElementById('overviewResponses').textContent=fmt(total);
+ document.getElementById('overviewMean').textContent=mean(avg);
+ document.getElementById('overviewCompetencies').textContent=fmt(competencies.size);
+ const max=Math.max(...counts,1);
+ document.getElementById('overviewBars').innerHTML=counts.map((v,i)=>`<div class="baritem"><div class="barvalue">${fmt(v)}</div><div class="bar c${i+1}" style="height:${Math.max(3,(v/max)*78)}%"></div><div class="barlabel">${LABELS[i]}</div></div>`).join('');
+}
+ofProgram.onchange=renderOverview;
+ofYear.onchange=renderOverview;
 function esc(s){const d=document.createElement('div');d.textContent=s??'';return d.innerHTML}
 function show(id,btn){
  document.querySelectorAll('.screen').forEach(s=>s.classList.remove('active'));
@@ -132,16 +142,88 @@ pf.innerHTML='<option value="">Todos os programas</option>'+programs.map(x=>`<op
 yf.innerHTML='<option value="">Todos</option><option>R1</option><option>R2</option><option>R3</option>';
 function refreshMatrixOptions(){const p=pf.value,y=yf.value;const mats=Object.entries(D.matrices).filter(([k,m])=>(!p||m.program===p)&&(!y||m.year===y)).sort((a,b)=>a[1].program.localeCompare(b[1].program,'pt-BR')||a[1].year.localeCompare(b[1].year));mf.innerHTML='<option value="">Todas as matrizes</option>'+mats.map(([k,m])=>`<option value="${k}">${esc(m.program)} ${m.year}</option>`).join('')}
 pf.onchange=()=>{refreshMatrixOptions();renderMatrices()};yf.onchange=()=>{refreshMatrixOptions();renderMatrices()};mf.onchange=renderMatrices;
-function matrixHTML(key,m){const cs=D.competencies.filter(c=>c.prefix+'_r'+c.year[1]===key).sort((a,b)=>a.number-b.number),counts=[1,2,3,4,5].map(n=>cs.reduce((s,c)=>s+c['c'+n],0)),t=m.total;return `<section class="card"><div class="matrix-title">${esc(m.program)} ${m.year}</div><div class="grid3"><div class="kpi"><div class="v">${m.competencies}</div><div class="l">Competências</div></div><div class="kpi"><div class="v">${m.responses}</div><div class="l">Respostas</div></div><div class="kpi"><div class="v">${mean(m.mean)}</div><div class="l">Média</div></div></div><div class="overall" style="margin-top:14px">${counts.map((v,i)=>{let w=pct(v,t);return `<div class="seg c${i+1}" style="width:${w}%">${w>=6?fmt(v)+' · '+w.toLocaleString('pt-BR',{minimumFractionDigits:1,maximumFractionDigits:1})+'%':''}</div>`}).join('')}</div><div class="legend">${counts.map((v,i)=>`<span><i class="dot" style="background:${COLORS[i]}"></i>${LABELS[i]}: ${fmt(v)} (${pct(v,t).toLocaleString('pt-BR',{maximumFractionDigits:1})}%)</span>`).join('')}</div><div class="competencies-head">Competências individuais</div><div class="help">Cada barra mantém as cinco categorias separadas. Os valores absolutos aparecem dentro dos segmentos quando houver espaço.</div><div id="list-${key}"></div><div class="pagination"><span id="info-${key}"></span><div class="page-buttons"><button id="prev-${key}">Anterior</button><button id="next-${key}">Próxima</button></div></div></section>`}
-function changePage(k,d){const cs=D.competencies.filter(c=>c.prefix+'_r'+c.year[1]===k),pages=Math.max(1,Math.ceil(cs.length/10));state[k]=Math.min(pages,Math.max(1,(state[k]||1)+d));renderPage(k)}
-function renderPage(k){const cs=D.competencies.filter(c=>c.prefix+'_r'+c.year[1]===k).sort((a,b)=>a.number-b.number),p=state[k]||1,pages=Math.max(1,Math.ceil(cs.length/10)),shown=cs.slice((p-1)*10,p*10),list=document.getElementById('list-'+k);if(!list)return;list.innerHTML=shown.map(c=>{let arr=[c.c1,c.c2,c.c3,c.c4,c.c5],t=c.n;return `<div class="comp"><div class="comp-top"><div class="comp-name">${esc(c.label)}</div><div class="meta">N=${fmt(c.n)} · média ${mean(c.mean)}</div></div><div class="stack">${arr.map((v,i)=>{let w=pct(v,t),txt=w>=8?`${v} (${w.toLocaleString('pt-BR',{maximumFractionDigits:0})}%)`:'';return `<div class="seg c${i+1}" style="width:${w}%">${txt}</div>`}).join('')}</div></div>`}).join('');document.getElementById('info-'+k).textContent=`Página ${p} de ${pages} · ${cs.length} competências`;document.getElementById('prev-'+k).disabled=p===1;document.getElementById('next-'+k).disabled=p===pages;document.getElementById('prev-'+k).onclick=()=>changePage(k,-1);document.getElementById('next-'+k).onclick=()=>changePage(k,1)}
+const SECTION_HEADERS={
+  // Medicina de Família e Comunidade — R1
+  "mfc_r1_01":"I - Atenção Primária - Princípios",
+  "mfc_r1_11":"II - Saúde Coletiva",
+  "mfc_r1_13":"III - Abordagem Individual",
+  "mfc_r1_21":"IV - Abordagem Familiar",
+  "mfc_r1_27":"V - Abordagem Comunitária",
+  "mfc_r1_31":"VI - Raciocínio Clínico",
+  "mfc_r1_58":"X - Avaliação da qualidade e auditoria",
+  "mfc_r1_60":"XI - Vigilância em Saúde",
+  "mfc_r1_63":"XII - Atenção à Saúde 01. Abordagem a problemas Gerais e específicos",
+  "mfc_r1_141":"XII - Atenção à Saúde 09. Abordagem a problemas dermatológicos",
+  "mfc_r1_151":"XII - Atenção à Saúde 10. Abordagem a problemas hematológicos",
+  "mfc_r1_153":"XII - Atenção à Saúde 11. Abordagem a problemas relacionados aos ouvidos, nariz e garganta",
+  "mfc_r1_157":"XII - Atenção à Saúde 12. Abordagem dos problemas metabólicos",
+  "mfc_r1_168":"XII - Atenção à Saúde 13. Abordagem a problemas relacionados aos rins e vias urinárias",
+  "mfc_r1_179":"XII - Atenção à Saúde 14. Abordagem a problemas musculoesqueléticos",
+  "mfc_r1_188":"XII - Atenção à Saúde 15. Cuidados Paliativos",
+  "mfc_r1_200":"XII - Atenção à Saúde 16. Cuidado Domiciliar",
+  "mfc_r1_214":"XII - Atenção à Saúde 17. Rastreamento",
+  "mfc_r1_225":"XII - Atenção à Saúde 18. Urgência e Emergência",
+  "mfc_r1_234":"XII - Atenção à Saúde 19. Realização de procedimentos ambulatoriais",
+  // Medicina de Família e Comunidade — R2
+  "mfc_r2_01":"I - Saúde Coletiva",
+  "mfc_r2_03":"II - Abordagem Individual",
+  "mfc_r2_09":"III - Abordagem Familiar",
+  "mfc_r2_15":"IV - Abordagem Comunitária",
+  "mfc_r2_23":"V - Raciocínio Clínico",
+  "mfc_r2_30":"VI - Pesquisa médica, gestão em saúde, comunicação e docência",
+  // Ginecologia e Obstetrícia — R2
+  "gin_obs_r2_01":"I - Atenção à saúde e cuidados com a gravidez e suas complicações no período Pré-Natal",
+  "gin_obs_r2_06":"II - Atenção a saúde e cuidados com a gravidez e suas complicações no período intra-parto",
+  "gin_obs_r2_12":"III - Atenção a saúde da mulher e cuidados com as complicações no período puerperal",
+  "gin_obs_r2_17":"IV - Habilidades técnicas em procedimentos e cirurgias em obstetrícia",
+  "gin_obs_r2_23":"V - Habilidades técnicas em procedimentos e cirurgias em ginecologia (laparotomias)",
+  "gin_obs_r2_27":"VI - Habilidades técnicas em procedimentos e cirurgias em ginecologia (cirurgias vaginais)",
+  "gin_obs_r2_30":"VII - Habilidades técnicas em procedimentos e cirurgias em ginecologia (endoscopia)",
+  "gin_obs_r2_34":"VIII - Cuidados perioperatórios",
+  "gin_obs_r2_37":"IX - Atenção à saúde e cuidados nas desordens do assoalho pélvico (incontinência urinária, fecal e prolapsos genitais)",
+  "gin_obs_r2_44":"X - Atenção à saúde e cuidados na abordagem das massas pélvicas e tumores de ovário",
+  "gin_obs_r2_46":"XI - Atenção à saúde e cuidados na dor pélvica aguda e crônica",
+  "gin_obs_r2_53":"XII - Atenção à saúde e cuidados na contracepção e planejamento familiar",
+  "gin_obs_r2_55":"XIII - Atenção à saúde e cuidados no sangramento uterino anormal",
+  "gin_obs_r2_59":"XIV - Infecções em ginecologia e obstetrícia",
+  "gin_obs_r2_64":"XV - Condições e patologias relacionadas a ginecologia endócrina",
+  "gin_obs_r2_68":"XVI - Atenção a saúde e cuidados no controle do câncer de colo nos níveis primário e secundário",
+  "gin_obs_r2_70":"XVII - Atenção à saúde e cuidados nas patologias mamárias a nível primário e secundário",
+  "gin_obs_r2_74":"XVIII - Atenção a saúde e cuidados nas urgências e emergências em ginecologia e obstetrícia",
+  "gin_obs_r2_82":"XIX - Atenção a saúde e cuidados em desordens não originárias do aparelho reprodutor",
+  "gin_obs_r2_84":"XX - Segurança do paciente em Ginecologia e Obstetrícia",
+  "gin_obs_r2_86":"XXI - Profissionalismo",
+  // Ginecologia e Obstetrícia — R3
+  "gin_obs_r3_01":"I - Atenção à saúde e cuidados com a gravidez e suas complicações no período pré-natal",
+  "gin_obs_r3_06":"II - Atenção à saúde e cuidados com a gravidez e suas complicações no período intra-parto",
+  "gin_obs_r3_08":"III - Atenção à saúde da mulher e cuidados com as complicações no período puerperal",
+  "gin_obs_r3_11":"IV - Habilidades técnicas em procedimentos e cirurgias em obstetrícia",
+  "gin_obs_r3_15":"V - Habilidades técnicas em procedimentos e cirurgias em ginecologia (laparotomias)",
+  "gin_obs_r3_18":"VI - Habilidades técnicas em procedimentos e cirurgias em ginecologia (cirurgias vaginais)",
+  "gin_obs_r3_22":"VII - Habilidades técnicas em procedimentos e cirurgias em ginecologia (endoscopia)",
+  "gin_obs_r3_27":"VIII - Atenção à saúde e cuidados na abordagem das massas pélvicas e tumores de ovário",
+  "gin_obs_r3_29":"IX - Atenção à saúde e cuidados na dor pélvica aguda e crônica",
+  "gin_obs_r3_33":"X - Atenção à saúde e cuidados no sangramento uterino anormal",
+  "gin_obs_r3_37":"XI - Infecções em ginecologia e obstetrícia",
+  "gin_obs_r3_41":"XII - Condições e patologias relacionadas a ginecologia endócrina",
+  "gin_obs_r3_46":"XIII - Atenção à saúde e cuidados no controle do câncer de colo nos níveis primário e secundário",
+  "gin_obs_r3_49":"XIV - Atenção à saúde e cuidados nas patologias mamárias a nível primário e secundário",
+  "gin_obs_r3_54":"XV - Atenção à saúde e cuidados nas urgências e emergências em Ginecologia e Obstetrícia",
+  "gin_obs_r3_59":"XVI - Atenção à saúde e cuidados em desordens não originárias do aparelho reprodutor",
+  "gin_obs_r3_60":"XVII - Segurança do paciente em Ginecologia e Obstetrícia",
+  "gin_obs_r3_64":"XVIII - Profissionalismo"
+};
+const SECTION_STARTS=Object.entries(SECTION_HEADERS).map(([varName,title])=>{const m=varName.match(/^(.+)_r([123])_(\d+)$/);return m?{varName,prefix:m[1],year:'R'+m[2],number:Number(m[3]),title}:null}).filter(Boolean);
+function getSectionHeader(c){
+ const candidates=SECTION_STARTS.filter(s=>s.prefix===c.prefix&&s.year===c.year&&s.number<=c.number).sort((a,b)=>b.number-a.number);
+ return candidates[0]?.title||'';
+}
+function matrixHTML(key,m){const cs=D.competencies.filter(c=>c.prefix+'_r'+c.year[1]===key).sort((a,b)=>a.number-b.number),counts=[1,2,3,4,5].map(n=>cs.reduce((s,c)=>s+c['c'+n],0)),t=m.total;return `<section class="card"><div class="matrix-title">${esc(m.program)} ${m.year}</div><div class="grid3"><div class="kpi"><div class="v">${m.competencies}</div><div class="l">Competências</div></div><div class="kpi"><div class="v">${m.responses}</div><div class="l">Respostas</div></div><div class="kpi"><div class="v">${mean(m.mean)}</div><div class="l">Média</div></div></div><div class="overall" style="margin-top:14px">${counts.map((v,i)=>{let w=pct(v,t);return `<div class="seg c${i+1}" style="width:${w}%">${w>=6?fmt(v)+' · '+w.toLocaleString('pt-BR',{minimumFractionDigits:1,maximumFractionDigits:1})+'%':''}</div>`}).join('')}</div><div class="legend">${counts.map((v,i)=>`<span><i class="dot" style="background:${COLORS[i]}"></i>${LABELS[i]}: ${fmt(v)} (${pct(v,t).toLocaleString('pt-BR',{maximumFractionDigits:1})}%)</span>`).join('')}</div><div class="competencies-head">Competências individuais</div><div class="help">Cada barra mantém as cinco categorias separadas. Os valores absolutos aparecem dentro dos segmentos quando houver espaço.</div><div id="list-${key}"></div><div class="pagination" style="display:none"><span id="info-${key}"></span><div class="page-buttons"><button id="prev-${key}">Anterior</button><button id="next-${key}">Próxima</button></div></div></section>`}
+function changePage(k,d){renderPage(k)}
+function renderPage(k){const cs=D.competencies.filter(c=>c.prefix+'_r'+c.year[1]===k).sort((a,b)=>a.number-b.number),shown=cs,list=document.getElementById('list-'+k);if(!list)return;list.innerHTML=shown.map((c,idx)=>{let arr=[c.c1,c.c2,c.c3,c.c4,c.c5],t=c.n,section=getSectionHeader(c),prev=idx?getSectionHeader(shown[idx-1]):'';return `${section&&section!==prev?`<div class="section-group-title">${esc(section)}</div>`:''}<div class="comp"><div class="comp-top"><div class="comp-name">${esc(c.label)}</div><div class="meta">N=${fmt(c.n)} · média ${mean(c.mean)}</div></div><div class="stack">${arr.map((v,i)=>{let w=pct(v,t),txt=w>=8?`${v} (${w.toLocaleString('pt-BR',{maximumFractionDigits:0})}%)`:'';return `<div class="seg c${i+1}" style="width:${w}%">${txt}</div>`}).join('')}</div></div>`}).join('');document.getElementById('info-'+k).textContent=`${cs.length} competências`;document.getElementById('prev-'+k).disabled=true;document.getElementById('next-'+k).disabled=true}
 function renderMatrices(){const p=pf.value,y=yf.value,ch=mf.value,sel=Object.entries(D.matrices).filter(([k,m])=>(!p||m.program===p)&&(!y||m.year===y)&&(!ch||k===ch)),a=document.getElementById('matrixArea');if(!sel.length){a.innerHTML='<section class="card empty">Nenhuma matriz encontrada.</section>';return}a.innerHTML=sel.map(([k,m])=>matrixHTML(k,m)).join('');sel.forEach(([k])=>{state[k]=1;renderPage(k)})}
 
 /* Participação */
-const withAnswers=RESPONDENTS.length;
-document.getElementById('withAnswers').textContent=fmt(withAnswers);
-const part=document.getElementById('partBars');
-part.innerHTML=`<div class="baritem"><div class="barvalue">${withAnswers}</div><div class="bar" style="height:${withAnswers/D.overall.records*70}%;background:var(--c4)"></div><div class="barlabel">Com respostas</div></div><div class="baritem"><div class="barvalue">${D.overall.records-withAnswers}</div><div class="bar" style="height:${(D.overall.records-withAnswers)/D.overall.records*70}%;background:#b8c3d1"></div><div class="barlabel">Sem respostas</div></div>`;
 
 /* Análise das respostas — usa as linhas individuais do DATA. */
 const rfProgram=document.getElementById('rfProgram'),rfLevel=document.getElementById('rfLevel'),rfRespondent=document.getElementById('rfRespondent'),respondentArea=document.getElementById('respondentArea');
@@ -178,7 +260,8 @@ function matrixResponseHTML(r,m,idx){
  const counts=[1,2,3,4,5].map(n=>m.dist[String(n)]||0), total=m.n;
  const segments=counts.map((v,i)=>{const w=pct(v,total);return `<div class="seg c${i+1}" style="width:${w}%">${w>=12?`${v} · ${w.toLocaleString('pt-BR',{maximumFractionDigits:0})}%`:''}</div>`}).join('');
  const table=shown.map(c=>`<tr><td>${esc(c.label)}</td><td class="value"><span class="response-badge" style="background:${COLORS[c.value-1]}">${c.value}</span><span class="response-text">${RESPONSE_TEXT[c.value-1]}</span></td></tr>`).join('');
- const isOpen=respondentOpenState[m.key]!==undefined?respondentOpenState[m.key]:(idx===0);\n return `<details class="card matrix-response" ${isOpen?'open':''}><summary><div class="matrix-title"><div><span>${esc(m.program)} ${m.year}</span><div class="matrix-header-text"><span class="eyebrow">Cabeçalho da matriz:</span>${esc(getMatrixHeader(m))}</div></div><span class="chev">⌄</span></div></summary>
+ const isOpen=respondentOpenState[m.key]!==undefined?respondentOpenState[m.key]:(idx===0);
+ return `<details class="card matrix-response" ${isOpen?'open':''}><summary><div class="matrix-title"><div><span>${esc(m.program)} ${m.year}</span>${getMatrixHeader(m)!=='Competências'?`<div class="matrix-header-text"><span class="eyebrow">Cabeçalho da matriz:</span>${esc(getMatrixHeader(m))}</div>`:''}</div><span class="chev">⌄</span></div></summary>
  <div class="grid3" style="margin-top:12px"><div class="kpi"><div class="v">${m.n}</div><div class="l">Competências respondidas</div></div><div class="kpi"><div class="v">${mean(m.mean)}</div><div class="l">Média da matriz</div></div><div class="kpi"><div class="v">${m.dist['5']||0}</div><div class="l">Respostas 5</div></div></div>
  <div class="response-stack">${segments}</div>
  <div class="response-legend">${counts.map((v,i)=>`<span><i class="dot" style="background:${COLORS[i]}"></i>${LABELS[i]}: ${fmt(v)}</span>`).join('')}</div>
@@ -188,7 +271,7 @@ function matrixResponseHTML(r,m,idx){
 }
 function changeRespondentPage(rid,key,delta){
  const openCards=respondentArea.querySelectorAll('.matrix-response');
- openCards.forEach(card=>{const btn=card.querySelector('.resp-page-btn');if(btn)respondentOpenState[btn.dataset.mkey]=card.open;});
+ openCards.forEach(card=>{const btn=card.querySelector('.resp-page-btn'); if(btn) respondentOpenState[btn.dataset.mkey]=card.open;});
  respondentState[key]=Math.max(1,(respondentState[key]||1)+delta);
  respondentOpenState[key]=true;
  renderRespondent();
@@ -208,7 +291,11 @@ function renderRespondent(){
  </section>
  ${r.matrices.map((m,i)=>matrixResponseHTML(r,m,i)).join('')}`;
  respondentArea.querySelectorAll('.resp-page-btn').forEach(btn=>{
-   btn.addEventListener('click',e=>{e.preventDefault();e.stopPropagation();changeRespondentPage(btn.dataset.rid,btn.dataset.mkey,Number(btn.dataset.delta));});
+   btn.addEventListener('click',e=>{
+     e.preventDefault();
+     e.stopPropagation();
+     changeRespondentPage(btn.dataset.rid,btn.dataset.mkey,Number(btn.dataset.delta));
+   });
  });
 }
 rfProgram.onchange=()=>{const old=rfRespondent.value;refreshRespondentOptions(old);renderRespondent()};
@@ -219,4 +306,5 @@ refreshMatrixOptions();
 renderMatrices();
 refreshRespondentOptions();
 renderRespondent();
+renderOverview();
 </script></body></html>
