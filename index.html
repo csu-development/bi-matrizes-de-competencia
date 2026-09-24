@@ -24,7 +24,7 @@ section.screen{display:none}section.screen.active{display:block}
 .comp{padding:0 0 8px;margin-bottom:8px;border-bottom:1px solid #e7edf4}.comp:last-child{border-bottom:0}
 .comp-top{display:flex;align-items:flex-end;justify-content:space-between;gap:12px;margin-bottom:5px}.comp-name{font-size:10px;font-weight:600;line-height:1.35;color:#19385e;flex:1}.meta{font-size:9px;color:#6f7d8e;white-space:nowrap}
 .pagination{display:flex;justify-content:space-between;align-items:center;margin-top:9px;font-size:9px;color:#718096}.page-buttons{display:flex;gap:5px}.page-buttons button{border:1px solid #cbd7e5;background:#fff;border-radius:7px;padding:5px 9px;font-size:10px;color:#1e3555;cursor:pointer}.page-buttons button:disabled{opacity:.45;cursor:default}
-.bars{display:flex;align-items:flex-end;gap:22px;height:230px;border-bottom:1px solid var(--line);padding:12px 8px 4px}.baritem{flex:1;text-align:center;height:100%;display:flex;flex-direction:column;justify-content:flex-end;align-items:center;gap:7px}.bar{width:min(54px,70%);border-radius:7px 7px 0 0;min-height:3px}.barvalue{font-size:12px;font-weight:800}.barlabel{font-size:12px;color:var(--muted)}
+.bars{display:flex;align-items:flex-end;gap:22px;height:230px;border-bottom:1px solid var(--line);padding:12px 8px 4px}.baritem{flex:1;text-align:center;height:100%;display:flex;flex-direction:column;justify-content:flex-end;align-items:center;gap:7px}.bar{width:min(54px,70%);border-radius:7px 7px 0 0;min-height:3px}.barvalue{font-size:12px;font-weight:800;height:16px;display:flex;align-items:flex-end;justify-content:center}.barlabel{font-size:12px;color:var(--muted);height:32px;line-height:15px;display:flex;align-items:flex-start;justify-content:center;text-align:center}
 .tablewrap{overflow:auto}table{width:100%;border-collapse:collapse;font-size:12px}th,td{padding:10px;border-bottom:1px solid var(--line);text-align:left}th{font-size:10px;text-transform:uppercase;color:var(--muted)}.num{text-align:center!important}
 .pill{display:inline-block;padding:4px 8px;border-radius:999px;background:#eaf1fc;color:#315f9e;font-size:11px;font-weight:700}
 .dist{display:grid;grid-template-columns:repeat(5,1fr);gap:8px;margin-top:12px}.distbox{text-align:center;padding:11px 5px;background:#f8f9fc;border-radius:8px}.distbox b{font-size:17px;display:block}.distbox span{font-size:10px;color:var(--muted)}
@@ -146,6 +146,7 @@ part.innerHTML=`<div class="baritem"><div class="barvalue">${withAnswers}</div><
 /* Análise das respostas — usa as linhas individuais do DATA. */
 const rfProgram=document.getElementById('rfProgram'),rfLevel=document.getElementById('rfLevel'),rfRespondent=document.getElementById('rfRespondent'),respondentArea=document.getElementById('respondentArea');
 const respondentState={};
+const respondentOpenState={};
 const respondentPrograms=[...new Set(RESPONDENTS.map(r=>r.program))].sort((a,b)=>a.localeCompare(b,'pt-BR'));
 rfProgram.innerHTML='<option value="">Todos os programas</option>'+respondentPrograms.map(p=>`<option value="${esc(p)}">${esc(p)}</option>`).join('');
 rfLevel.innerHTML='<option value="">Todos os níveis</option><option value="R1">R1</option><option value="R2">R2</option><option value="R3">R3</option>';
@@ -164,20 +165,34 @@ function refreshRespondentOptions(keep){
  if(keep && arr.some(r=>r.record_id===keep)) rfRespondent.value=keep;
 }
 function getSelectedRespondent(){return RESPONDENTS.find(r=>r.record_id===rfRespondent.value)}
+const MATRIX_HEADERS={
+  "Medicina de Família e Comunidade|R1":"MEDICINA DE FAMÍLIA E COMUNIDADE - R1 — Objetivos gerais e competências",
+  "Medicina de Família e Comunidade|R2":"Medicina de Família e Comunidade - R2 — I - Saúde Coletiva",
+  "Ginecologia e Obstetrícia|R1":"GINECOLOGIA E OBSTETRÍCIA - R1 — Objetivo geral",
+  "Ginecologia e Obstetrícia|R2":"GINECOLOGIA E OBSTETRÍCIA - R2 — Objetivo geral",
+  "Ginecologia e Obstetrícia|R3":"GINECOLOGIA E OBSTETRÍCIA - R3 — Objetivo geral"
+};
+function getMatrixHeader(m){return MATRIX_HEADERS[`${m.program}|${m.year}`]||'Competências';}
 function matrixResponseHTML(r,m,idx){
  const page=respondentState[m.key]||1, pageSize=20, rows=m.responses, pages=Math.max(1,Math.ceil(rows.length/pageSize)), start=(page-1)*pageSize, shown=rows.slice(start,start+pageSize);
  const counts=[1,2,3,4,5].map(n=>m.dist[String(n)]||0), total=m.n;
  const segments=counts.map((v,i)=>{const w=pct(v,total);return `<div class="seg c${i+1}" style="width:${w}%">${w>=12?`${v} · ${w.toLocaleString('pt-BR',{maximumFractionDigits:0})}%`:''}</div>`}).join('');
- const table=shown.map(c=>`<tr><td style="width:62px"><b>${String(c.number).padStart(2,'0')}</b></td><td>${esc(c.label)}</td><td class="value"><span class="response-badge" style="background:${COLORS[c.value-1]}">${c.value}</span><span class="response-text">${RESPONSE_TEXT[c.value-1]}</span></td></tr>`).join('');
- return `<details class="card matrix-response" ${idx===0?'open':''}><summary><div class="matrix-title"><span>${esc(m.program)} ${m.year}</span><span class="chev">⌄</span></div></summary>
+ const table=shown.map(c=>`<tr><td>${esc(c.label)}</td><td class="value"><span class="response-badge" style="background:${COLORS[c.value-1]}">${c.value}</span><span class="response-text">${RESPONSE_TEXT[c.value-1]}</span></td></tr>`).join('');
+ const isOpen=respondentOpenState[m.key]!==undefined?respondentOpenState[m.key]:(idx===0);\n return `<details class="card matrix-response" ${isOpen?'open':''}><summary><div class="matrix-title"><div><span>${esc(m.program)} ${m.year}</span><div class="matrix-header-text"><span class="eyebrow">Cabeçalho da matriz:</span>${esc(getMatrixHeader(m))}</div></div><span class="chev">⌄</span></div></summary>
  <div class="grid3" style="margin-top:12px"><div class="kpi"><div class="v">${m.n}</div><div class="l">Competências respondidas</div></div><div class="kpi"><div class="v">${mean(m.mean)}</div><div class="l">Média da matriz</div></div><div class="kpi"><div class="v">${m.dist['5']||0}</div><div class="l">Respostas 5</div></div></div>
  <div class="response-stack">${segments}</div>
  <div class="response-legend">${counts.map((v,i)=>`<span><i class="dot" style="background:${COLORS[i]}"></i>${LABELS[i]}: ${fmt(v)}</span>`).join('')}</div>
- <div class="tablewrap"><table class="response-table"><thead><tr><th>#</th><th>Competência</th><th>Resposta</th></tr></thead><tbody>${table}</tbody></table></div>
- <div class="response-pages"><span class="note">Página ${page} de ${pages} · ${rows.length} competências respondidas</span><div><button ${page===1?'disabled':''} onclick="changeRespondentPage('${r.record_id}','${m.key}',-1,event)">Anterior</button> <button ${page===pages?'disabled':''} onclick="changeRespondentPage('${r.record_id}','${m.key}',1,event)">Próxima</button></div></div>
+ <div class="tablewrap"><table class="response-table"><thead><tr><th>Competência</th><th>Resposta</th></tr></thead><tbody>${table}</tbody></table></div>
+ <div class="response-pages"><span class="note">Página ${page} de ${pages} · ${rows.length} competências respondidas</span><div><button class="resp-page-btn" data-rid="${esc(r.record_id)}" data-mkey="${esc(m.key)}" data-delta="-1" ${page===1?'disabled':''}>Anterior</button> <button class="resp-page-btn" data-rid="${esc(r.record_id)}" data-mkey="${esc(m.key)}" data-delta="1" ${page===pages?'disabled':''}>Próxima</button></div></div>
  </details>`;
 }
-function changeRespondentPage(rid,key,delta,event){if(event)event.stopPropagation();const k=rid+'|'+key;respondentState[k]=(respondentState[k]||1)+delta;renderRespondent()}
+function changeRespondentPage(rid,key,delta){
+ const openCards=respondentArea.querySelectorAll('.matrix-response');
+ openCards.forEach(card=>{const btn=card.querySelector('.resp-page-btn');if(btn)respondentOpenState[btn.dataset.mkey]=card.open;});
+ respondentState[key]=Math.max(1,(respondentState[key]||1)+delta);
+ respondentOpenState[key]=true;
+ renderRespondent();
+}
 function renderRespondent(){
  const r=getSelectedRespondent();
  if(!r){respondentArea.innerHTML='<section class="card empty-response">Selecione um respondente.</section>';return}
@@ -192,10 +207,13 @@ function renderRespondent(){
  <div class="bars" style="height:170px;margin-top:8px">${trend}</div>
  </section>
  ${r.matrices.map((m,i)=>matrixResponseHTML(r,m,i)).join('')}`;
+ respondentArea.querySelectorAll('.resp-page-btn').forEach(btn=>{
+   btn.addEventListener('click',e=>{e.preventDefault();e.stopPropagation();changeRespondentPage(btn.dataset.rid,btn.dataset.mkey,Number(btn.dataset.delta));});
+ });
 }
 rfProgram.onchange=()=>{const old=rfRespondent.value;refreshRespondentOptions(old);renderRespondent()};
 rfLevel.onchange=()=>{const old=rfRespondent.value;refreshRespondentOptions(old);renderRespondent()};
-rfRespondent.onchange=()=>{Object.keys(respondentState).forEach(k=>delete respondentState[k]);renderRespondent()};
+rfRespondent.onchange=()=>{Object.keys(respondentState).forEach(k=>delete respondentState[k]);Object.keys(respondentOpenState).forEach(k=>delete respondentOpenState[k]);renderRespondent()};
 
 refreshMatrixOptions();
 renderMatrices();
